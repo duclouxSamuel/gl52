@@ -1,14 +1,47 @@
 package tp01;
 
-public abstract class AbstractStack implements Stack {
+import java.util.Iterator;
+
+public abstract class AbstractStack <T> implements Stack<T> {
 	
 	@Override
 	public boolean isEmpty() {
 		return false;
 	}
 	
-	abstract void fireDataAdded();
+	@Override
+	public void addStackListener(StackListener listener) {
+		// TODO Auto-generated method stub
+		
+		//listener.dataAdded(this);
+	}
+
+	@Override
+	public void removeStackListener(StackListener listener) {
+		// TODO Auto-generated method stub
+		
+		//listener.dataRemoved(this);
+	}
 	
-	abstract void fireDataRemoved();
+	public class StackIterator<X> implements Iterator<Object>{
+
+		@Override
+		public boolean hasNext() {
+			// TODO Auto-generated method stub
+			return false;
+		}
+
+		@Override
+		public X next() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+	}
+	
+	
+	protected abstract void fireDataAdded();
+	
+	protected abstract void fireDataRemoved();
 
 }

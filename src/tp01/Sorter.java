@@ -2,6 +2,6 @@ package tp01;
 
 public interface Sorter {
 	
-	void sort(Stack stack);
+	void sort(Stack<?> stack);
 
 }

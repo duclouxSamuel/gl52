@@ -2,10 +2,12 @@ package tp01;
 
 import java.util.Iterator;
 
-public class ArrayStack extends AbstractStack {
+public class ArrayStack<T> extends AbstractStack<T> {
 	
 	private T[] content;
-
+	
+	
+	
 	/*Method used to push data into the stack
 	 * 
 	 */
@@ -14,7 +16,7 @@ public class ArrayStack extends AbstractStack {
 		
 		//We create a new stack of size n+1
 		int n = this.size();
-		T[] newDataStack = new T[n +1];
+		T[] newDataStack = (T[]) new Object[n+1];
 		
 		//We copy the actual stack into the new one
 		for( int i = 0 ; i < n ; i++)
@@ -22,6 +24,10 @@ public class ArrayStack extends AbstractStack {
 		
 		//We add the new data into the new stack
 		newDataStack[n] = data;
+		
+		
+		StackListener listener = null ;
+		this.addStackListener( listener);
 		
 		this.content = newDataStack;
 	}
@@ -35,34 +41,26 @@ public class ArrayStack extends AbstractStack {
 		T poppedData = this.content[n-1];
 		
 		//We create a new stack of size n-1
-		T[] newDataStack = new T[n-1];
-		
+		T[] newDataStack = (T[]) new Object[n-1];
+
 		//We copy the actual stack into the new one
 		for(int i = 0 ; i < n-1 ; i++)
 			newDataStack[i] = this.content[i];
+		
+		StackListener listener = null ;
+		this.removeStackListener(listener);
 		
 		return poppedData;
 	}
 
 	@Override
 	public int size() {
+		if (this.content != null)
 		return this.content.length;
+		
+		return 0;
 	}
 
-	
-	@Override
-	public void addStacklistener(StackListener listener) {
-		// TODO Auto-generated method stub
-		
-		listener.dataAdded(this);
-	}
-
-	@Override
-	public void removeStackListener(StackListener listener) {
-		// TODO Auto-generated method stub
-		
-		listener.dataRemoved(this);
-	}
 
 	@Override
 	public Iterator<T> iterator() {
@@ -71,14 +69,15 @@ public class ArrayStack extends AbstractStack {
 	}
 
 	@Override
+	protected
 	void fireDataAdded() {
 		// TODO Auto-generated method stub
 	}
 
 	@Override
+	protected
 	void fireDataRemoved() {
 		// TODO Auto-generated method stub
-		
 	}
-
+	
 }

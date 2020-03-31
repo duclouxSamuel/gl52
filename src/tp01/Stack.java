@@ -1,12 +1,13 @@
 package tp01;
 
-public interface Stack extends Iterable<T> {
+public interface Stack<T> extends Iterable<T> {
 	
 	void push(T data);
 	T pop();
 	boolean isEmpty();
 	int size();
-	void addStacklistener(StackListener listener);
+	
+	void addStackListener(StackListener listener);
 	void removeStackListener(StackListener listener);
 	
 }
