@@ -9,7 +9,6 @@ public class ArrayStack<T> extends AbstractStack<T> {
 	
 	
 	/*Method used to push data into the stack
-	 * 
 	 */
 	@Override
 	public void push(T data) {
@@ -26,12 +25,13 @@ public class ArrayStack<T> extends AbstractStack<T> {
 		newDataStack[n] = data;
 		
 		
-		StackListener listener = null ;
-		this.addStackListener( listener);
-		
+		this.addStackListener(null);
 		this.content = newDataStack;
 	}
 
+	/*
+	 * Method used to pop data from the stack
+	 */
 	@Override
 	public T pop(){
 		
@@ -50,9 +50,14 @@ public class ArrayStack<T> extends AbstractStack<T> {
 		StackListener listener = null ;
 		this.removeStackListener(listener);
 		
+		this.content = newDataStack;
+		
 		return poppedData;
 	}
 
+	/*
+	 * Returns the size of the stack
+	 */
 	@Override
 	public int size() {
 		if (this.content != null)

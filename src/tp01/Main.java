@@ -3,14 +3,17 @@ package tp01;
 public class Main {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+		// Main method used to demonstrate the algorithms
 
 
+		//We create a stack from a random number of random integers
 		int n = (int) (Math.random()*10);
-		System.out.println("Size of array is "+ n);
+		System.out.println("Size of the stack is "+ n);
 		
 		ArrayStack<Integer> newStack = new ArrayStack<>();
 		
+		
+		System.out.println("Original Stack :");
 		for(int i = 0; i < n ; i++) {
 			int newInt = (int) (Math.random()*10);
 			newStack.push(newInt);
@@ -18,12 +21,19 @@ public class Main {
 			
 		}
 		
-		int popped = 0;
 		
+		
+		int popped = 0;
+		System.out.println("Popped stack :");
 		for(int i = 0 ; i < n ; i++) {
 			
 			popped = newStack.pop();
 			System.out.println(popped);
 		}
+		
+		AscendentOrderSorter sorter = new AscendentOrderSorter();
+		
+		
+		
 	}
 }

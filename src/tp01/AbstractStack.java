@@ -11,14 +11,14 @@ public abstract class AbstractStack <T> implements Stack<T> {
 	
 	@Override
 	public void addStackListener(StackListener listener) {
-		// TODO Auto-generated method stub
+		// This method is a listener for stacks adds
 		
 		//listener.dataAdded(this);
 	}
 
 	@Override
 	public void removeStackListener(StackListener listener) {
-		// TODO Auto-generated method stub
+		// This method is a listener for stack removals
 		
 		//listener.dataRemoved(this);
 	}
@@ -27,13 +27,11 @@ public abstract class AbstractStack <T> implements Stack<T> {
 
 		@Override
 		public boolean hasNext() {
-			// TODO Auto-generated method stub
 			return false;
 		}
 
 		@Override
 		public X next() {
-			// TODO Auto-generated method stub
 			return null;
 		}
 		
